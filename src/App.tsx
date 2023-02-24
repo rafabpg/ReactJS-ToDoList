@@ -1,5 +1,6 @@
-import { GlobalStyles } from "./Global"
+import { GlobalStyles } from "./global"
 import Header from "./components/Header"
+import Input from "./components/Input"
 
 function App() {
   
@@ -8,6 +9,7 @@ function App() {
     <>
       <GlobalStyles/>
       <Header/>
+      <Input/>
     </>
   )
 }

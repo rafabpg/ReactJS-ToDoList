@@ -4,7 +4,7 @@ import {createGlobalStyle}  from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
 
     body{
-        background-color:#454545;
+        background-color:#262626;
     }
 
 
