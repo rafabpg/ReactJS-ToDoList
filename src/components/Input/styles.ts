@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerInputTask = styled.div`
+export const ContainerInputTask = styled.form`
     display:flex;
     gap:1rem;
     align-items:center;
