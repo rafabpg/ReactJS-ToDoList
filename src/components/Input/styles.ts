@@ -39,7 +39,11 @@ export const ButtonTask = styled.button`
         padding-top:.3rem;
     }
 
-    &:hover{
+    &:not(:disabled):hover{
         transform: translate(0, 5px);
+    }
+
+    &:disabled{
+        opacity:0.5;
     }
 `;
