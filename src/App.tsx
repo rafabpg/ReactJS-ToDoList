@@ -29,6 +29,8 @@ function App() {
     },
   ])
 
+  
+
   function deleteTaskHandler(id:string){
     const listTaskWithoutDeletedOne = allTasks.filter(item=>{
       return (item.id != id) 
@@ -44,16 +46,37 @@ function App() {
     }])
   }
 
+  function handlerCheckedTask(id:string){
+    const listTaskWithCheckedOne = allTasks.filter(item=>{
+      if(item.id == id){
+        item.completed = !item.completed;
+      }
+      return item;
+    })
+    setAllTasks(listTaskWithCheckedOne);
+  }
+
+  const allDoneTasks = allTasks.filter(item => {
+    return item.completed !== false
+  })
+
   return (
     <>
       <GlobalStyles/>
       <Header/>
       <Input handlerNewTask={handlerNewTask}/>
-      <InfoTasks numberTasks={allTasks.length}/>
+      <InfoTasks numberTasks={allTasks.length} doneTasks={allDoneTasks.length}/>
       {
         allTasks.map(item=>{
-          return (<Task id={item.id} deleteTaskHandler={deleteTaskHandler} key={item.id} content={item.content} completed={item.completed}/>)
-        })
+          return (
+            <Task 
+              id={item.id} 
+              deleteTaskHandler={deleteTaskHandler} 
+              key={item.id} 
+              handlerCheckedTask={handlerCheckedTask}
+              content={item.content} 
+              completed={item.completed}/>
+          )})
       }
     </>
   )

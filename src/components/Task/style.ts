@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface lineProps {
-    done?:boolean
+    done:boolean
 }
 
 export const TaskContainer = styled.div`
@@ -20,7 +20,7 @@ export const TaskCheckbox = styled.input`
 
 export const TaskContent = styled.p<lineProps>`
     color:#FFFFFF;
-    text-decoration: ${props=>props.done ? 'line-through': 'none'};
+    text-decoration: ${props=>props.done == true ? "line-through" : "no-underline"}};
 `;
 
 export const TaskTrash = styled.button`
