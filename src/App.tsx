@@ -4,7 +4,8 @@ import Input from "./components/Input"
 import InfoTasks from "./components/InfoTasks"
 import Task from "./components/Task"
 import { v4 as uuidv4  } from 'uuid';
-import { useState } from "react"
+import { useState } from "react";
+import EmptyList from "./components/EmptyList"
 
 
 
@@ -68,16 +69,19 @@ function App() {
       <InfoTasks numberTasks={allTasks.length} doneTasks={allDoneTasks.length}/>
       {
         allTasks.map(item=>{
-          return (
-            <Task 
-              id={item.id} 
-              deleteTaskHandler={deleteTaskHandler} 
-              key={item.id} 
-              handlerCheckedTask={handlerCheckedTask}
-              content={item.content} 
-              completed={item.completed}/>
-          )})
+          if(allTasks.length > 0){
+            return (
+              <Task 
+                id={item.id} 
+                deleteTaskHandler={deleteTaskHandler} 
+                key={item.id} 
+                handlerCheckedTask={handlerCheckedTask}
+                content={item.content} 
+                completed={item.completed}/>
+          )}})
       }
+
+      {allTasks.length == 0 && <EmptyList/>}
     </>
   )
 }
